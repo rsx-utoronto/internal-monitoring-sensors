@@ -1,5 +1,29 @@
 # internal-monitoring-sensors
+Current Code (Richard) using LM35:
 
+int photocellPin = 0;
+void setup() {
+    Serial.begin(9600);
+}
+
+void loop() {
+	delay(1000);
+  	//Vout = analogRead(photocellPin);
+  	float Vout = 5.0; //siumlating
+  	float Temp = (Vout/1024.0)*5000; //convert to millivolts
+	  
+    float cel = Temp/10; //get temperature in celcius (1Cel/10mv ratio)
+  	Serial.print(cel);
+  	Serial.println("C");
+  	delay(1000);
+}
+
+
+
+
+
+
+Previous Code (not LM35):
 Thermistor and Photocell code:
 
 #include <math.h>
